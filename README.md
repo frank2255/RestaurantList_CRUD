@@ -16,10 +16,10 @@
 	
 安裝
 
-
 1.開啟終端機(Terminal)cd 到存放專案本機位置並執行:
 
 git clone https://github.com/frank2255/RestaurantList.git 
+
 2.初始
 cd Restaurant_list 
 npm install
