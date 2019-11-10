@@ -1,5 +1,7 @@
 # RestaurantList
 餐廳清單
+
+
 使用者可以在首頁看到所有餐廳與它們的簡單資料：
 	餐廳照片
 	餐廳名稱
@@ -12,9 +14,12 @@
 	描述
 	圖片
 	
-	安裝
+安裝
+
+
 1.開啟終端機(Terminal)cd 到存放專案本機位置並執行:
-git clone https://github.com/frank2255/RestaurantList.git
+
+git clone https://github.com/frank2255/RestaurantList.git 
 2.初始
 cd Restaurant_list 
 npm install
