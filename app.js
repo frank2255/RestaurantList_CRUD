@@ -35,17 +35,16 @@ db.once('open', () => {
 //載入
 const RestaurantList = require('./models/restaurantList')
 
-// // search
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword
-//   const restaurant = restaurantList.results.filter(restaurant => {
-//     return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
-//   })
-//   res.render('index', { restaurant: restaurant, keyword: keyword })
-// })
+// search
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const restaurant = restaurantList.results.filter(restaurant => {
+    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  })
+  res.render('index', { restaurant: restaurant, keyword: keyword })
+})
 
 //列出所有 restaurants
-
 app.get('/', (req, res) => {
   RestaurantList.find((err, todos) => {
     if (err) return console.error(err)
@@ -62,6 +61,13 @@ app.get('/restaurants/:id', (req, res) => {
   RestaurantList.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
     return res.render('show', { restaurant: restaurant })
+  })
+})
+// 修改 restaurants 頁面
+app.get('/restaurants/:id/edit', (req, res) => {
+  RestaurantList.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.error(err)
+    return res.render('edit', { restaurant: restaurant })
   })
 })
 // 新增一筆 RestaurantList
@@ -82,11 +88,26 @@ app.post('/new', (req, res) => {
     return res.redirect('/')  // 新增完成後，將使用者導回首頁
   })
 })
-// 修改 restaurants 頁面
-app.get('/restaurants/:id/edit', (req, res) => {
+// 修改 RestaurantList
+app.post('/restaurants/:id/edit', (req, res) => {
+  RestaurantList.findById(req.params.id, (err, restaurantList) => {
+    if (err) return console.error(err)
+    restaurantList.name = req.body.name
+    restaurantList.save(err => {
+      if (err) return console.error(err)
+      return res.redirect(`/restaurants/${req.params.id}`)
+    })
+  })
+})
+
+//刪除 restaurants
+app.post('/restaurants/:id/delete', (req, res) => {
   RestaurantList.findById(req.params.id, (err, restaurant) => {
     if (err) return console.error(err)
-    return res.render('edit', { restaurant: restaurant })
+    restaurant.remove(err => {
+      if (err) return console.error(err)
+      return res.redirect('/')
+    })
   })
 })
 
