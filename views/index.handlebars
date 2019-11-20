@@ -11,7 +11,7 @@
     </div>
 
     <div class="container">
-      <a class="navbar" href="/new">
+      <a class="navbar" href="/restaurants/new">
         新增餐廳清單
       </a>
     </div>
@@ -45,7 +45,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         <!-- 迴圈 -->
-        {{#each todos}}
+        {{#each restaurants}}
         <a href="/restaurants/{{this.id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" width="300px">
@@ -62,12 +62,12 @@
               </span>
 
             </div>
+            <a href="/restaurants/{{this.id}}/edit" class="text-secondary">Edit</a>
+            <a href="/restaurants/{{this.id}}" class="text-secondary">Detail</a>
+            <form action="/restaurants/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit">delete</button>
           </div>
         </a>
-        <a href="/restaurants/{{this.id}}/edit" class="text-secondary">Edit</a>
-        <a href="/restaurants/{{this.id}}" class="text-secondary">Detail</a>
-        <form action="/restaurants/{{{this.id}}}/delete" method="POST" style="display: inline;">
-          <button type="submit">delete</button>
         </form>
         {{/each}}
       </div>
