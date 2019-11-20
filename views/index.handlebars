@@ -1,6 +1,7 @@
 <header>
   <!-- navigation -->
   <nav class="navbar navbar-light bg-light">
+
     <div class="container">
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
@@ -8,6 +9,13 @@
         我的餐廳清單
       </a>
     </div>
+
+    <div class="container">
+      <a class="navbar" href="/new">
+        新增餐廳清單
+      </a>
+    </div>
+
   </nav>
 
   <div class="banner"></div>
@@ -37,7 +45,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         <!-- 迴圈 -->
-        {{#each restaurant}}
+        {{#each todos}}
         <a href="/restaurants/{{this.id}}" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}" width="300px">
@@ -56,6 +64,9 @@
             </div>
           </div>
         </a>
+        <a href="/restaurants/{{this.id}}/edit" class="text-secondary">Edit</a>
+        <a href="/restaurants/{{this.id}}" class="text-secondary">Detail</a>
+        <button type="submit">delete</button>
         {{/each}}
       </div>
     </div>

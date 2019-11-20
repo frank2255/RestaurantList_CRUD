@@ -1,20 +1,23 @@
 // require packages used in the project
 const express = require('express')
 const app = express()
-
+const port = 3000
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
+
 mongoose.connect('mongodb://localhost/restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
 
 // require express-handlebars here
 const exphbs = require('express-handlebars')
-const restaurantList = require('./restaurant.json')
 
 // setting template engine
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
-// setting static files
+// setting use
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'))
+
 
 // mongoose 連線後透過 mongoose.connection 拿到 Connection 的物件
 const db = mongoose.connection
@@ -30,31 +33,64 @@ db.once('open', () => {
 })
 
 //載入
-const Todo = require('./models/todo');
+const RestaurantList = require('./models/restaurantList')
 
-// routes setting
+// // search
+// app.get('/search', (req, res) => {
+//   const keyword = req.query.keyword
+//   const restaurant = restaurantList.results.filter(restaurant => {
+//     return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+//   })
+//   res.render('index', { restaurant: restaurant, keyword: keyword })
+// })
+
+//列出所有 restaurants
+
 app.get('/', (req, res) => {
-
-  res.render('index', { restaurant: restaurantList.results })
-
-})
-
-//show
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-  res.render('show', { restaurant: restaurant })
-})
-
-// search
-app.get('/search', (req, res) => {
-  const keyword = req.query.keyword
-  const restaurant = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase())
+  RestaurantList.find((err, todos) => {
+    if (err) return console.error(err)
+    return res.render('index', { todos: todos })
   })
-  res.render('index', { restaurant: restaurant, keyword: keyword })
+})
+
+// 新增一筆 restaurants 頁面
+app.get('/new', (req, res) => {
+  return res.render('new')
+})
+// 顯示一筆 restaurants 的詳細內容
+app.get('/restaurants/:id', (req, res) => {
+  RestaurantList.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.error(err)
+    return res.render('show', { restaurant: restaurant })
+  })
+})
+// 新增一筆 RestaurantList
+app.post('/new', (req, res) => {
+  const restaurant = new RestaurantList({
+    name: req.body.name,  // name 是從 new 頁面 form 傳過來
+    name_en: req.body.name_en,
+    category: req.body.category,
+    image: req.body.image,
+    location: req.body.location,
+    phone: req.body.phone,
+    google_map: req.body.google_map,
+    rating: req.body.rating,
+    description: req.body.description
+  })
+  restaurant.save(err => {
+    if (err) return console.error(err)
+    return res.redirect('/')  // 新增完成後，將使用者導回首頁
+  })
+})
+// 修改 restaurants 頁面
+app.get('/restaurants/:id/edit', (req, res) => {
+  RestaurantList.findById(req.params.id, (err, restaurant) => {
+    if (err) return console.error(err)
+    return res.render('edit', { restaurant: restaurant })
+  })
 })
 
 // start and listen on the Express server
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log(`App is running`)
 })
