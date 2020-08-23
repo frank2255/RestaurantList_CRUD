@@ -61,6 +61,6 @@ app.use('/restaurants', require('./routes/restaurantList'))
 
 
 // start and listen on the Express server
-app.listen(app.listen(process.env.PORT || port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`App is running`)
 })
