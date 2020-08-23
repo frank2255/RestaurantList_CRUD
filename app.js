@@ -35,6 +35,7 @@ db.once('open', () => {
 
 //載入
 const RestaurantList = require('./models/restaurantList')
+//const RestaurantList = require('./restaurant.json')
 
 // search
 app.get('/search', (req, res) => {

@@ -25,109 +25,71 @@
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          餐廳名稱:
-        </span>
-        {{restaurant.name}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="name" name="name" value="{{{restaurant.name}}}">
+          <label for="餐廳名稱" class="fas fa-utensils pr-2">餐廳名稱:</label>
+          <input type="text" placeholder="name" name="name" size="100PX" value="{{{restaurant.name}}}">
         </span>
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          餐廳英文名稱:
-        </span>
-        {{restaurant.name_en}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="name_en" name="name_en" value="{{{restaurant.name_en}}}">
+          <label for="餐廳名稱" class="fas fa-utensils pr-2">餐廳英文名稱:</label>
+          <input type="text" placeholder="name_en" name="name_en" size="95PX" value="{{{restaurant.name_en}}}">
         </span>
 
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          類別：
-        </span>
-        {{restaurant.category}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="category" name="category" value="{{{restaurant.category}}}">
+          <label for="類別" class="fas fa-utensils pr-2">類別:</label>
+          <input type="text" placeholder="category" name="category" value="{{{restaurant.category}}}">
         </span>
 
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-map-marker-alt pr-2"></i>
-          地址：
-        </span>
-        {{restaurant.location}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="location" name="location" value="{{{restaurant.location}}}">
+          <label for="地址" class="fas fa-utensils pr-2">地址:</label>
+          <input type="text" placeholder="location" name="location" size="100PX" value="{{{restaurant.location}}}">
         </span>
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-map-marker-alt pr-2"></i>
-          google地圖：{{restaurant.google_map}}
-        </span>
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為<input type="text" placeholder="google_map" name="google_map" value="{{{restaurant.google_map}}}">
+          <label for="google地圖" class="fas fa-utensils pr-2">google地圖:</label>
+          <input type="text" placeholder="google_map" name="google_map" size="94PX" value="{{{restaurant.google_map}}}">
         </span>
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-mobile-alt pr-2"></i>
-          電話：
-        </span>
-        {{restaurant.phone}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="phone" name="phone" value="{{{restaurant.phone}}}">
+          <label for="電話" class="fas fa-utensils pr-2">電話:</label>
+          <input type="text" placeholder="phone" name="phone" value="{{{restaurant.phone}}}">
         </span>
       </p>
 
       <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-mobile-alt pr-2"></i>
-          評分：
-        </span>
-        {{restaurant.rating}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為 <input type="text" placeholder="rating" name="rating" value="{{{restaurant.rating}}}">
+          <label for="評分" class="fas fa-utensils pr-2">評分:</label>
+          <input type="text" placeholder="rating" name="rating" value="{{{restaurant.rating}}}">
         </span>
       </p>
 
-      <p class="mb-5">
+      <p class="mb-1">
         <span class="text-secondary">
-          <i class="fas fa-mobile-alt pr-2"></i>
-          敘述:
+          <label for="敘述" class="fas fa-utensils pr-2">敘述:</label>
+          <input type="text" placeholder="description" name="description" size="100PX"
+            value="{{{restaurant.description}}}">
         </span>
-        {{restaurant.description}}
-        <span class="text-secondary">
-          <i class="fas fa-utensils pr-2"></i>
-          更改為<input type="text" placeholder="description" name="description" value="{{{restaurant.description}}}">
-        </span>
+      </p>
 
-        <p class="mb-1">
-          <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            圖片：{{restaurant.image}}
-          </span>
-          <span class="text-secondary">
-            <i class="fas fa-utensils pr-2"></i>
-            更改為<input type="text" placeholder="image" name="image" value="{{{restaurant.image}}}">
-          </span>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="圖片" class="fas fa-utensils pr-2">圖片:</label>
+          <input type="text" placeholder="image" name="image" size="100PX" value="{{{restaurant.image}}}">
+          <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
+            style="max-width: 600px;">
+        </span>
+      </p>
 
     </div>
   </div>

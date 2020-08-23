@@ -13,51 +13,72 @@
   <div class="banner"></div>
 </header>
 
+<div class="container mt-5">
+  <form action="/restaurants/new" method="POST">
+    <div class="col-12 col-md-10 mx-auto">
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_name" class="fas fa-utensils pr-2">餐廳名稱:</label>
+          <input type="text" placeholder="name" name="name" size="100PX">
+        </span>
+      </p>
 
-<form action="/restaurants/new" method="POST">
-  <div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳名稱</label>
-      <input type="text" placeholder="name" name="name">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_name_en" class="fas fa-utensils pr-2">餐廳英文名稱:</label>
+          <input type="text" placeholder="name_en" name="name_en" size="95PX">
+        </span>
+      </p>
 
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳英文名稱</label>
-      <input type="text" placeholder="name_en" name="name_en">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_category" class="fas fa-utensils pr-2">餐廳類別:</label>
+          <input type="text" placeholder="category" name="category">
+        </span>
+      </p>
 
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳類別</label>
-      <input type="text" placeholder="category" name="category">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_location" class="fas fa-utensils pr-2">餐廳地址:</label>
+          <input type="text" placeholder="location" name="location" size="100PX">
+        </span>
+      </p>
 
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳圖片</label>
-      <input type="text" placeholder="image" name="image">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_google_map" class="fas fa-utensils pr-2">google地圖:</label>
+          <input type="text" placeholder="google_map" name="google_map" size="94PX">
+        </span>
+      </p>
 
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳地址</label>
-      <input type="text" placeholder="location" name="location">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_phone" class="fas fa-utensils pr-2">電話:</label>
+          <input type="text" placeholder="phone" name="phone">
+        </span>
+      </p>
 
-    <div class="form-group col-md-3">
-      <label for="edit_image">餐廳電話</label>
-      <input type="text" placeholder="phone" name="phone">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="edit_image">google地圖</label>
-      <input type="text" placeholder="google_map" name="google_map">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="edit_image">評分</label>
-      <input type="text" placeholder="rating" name="rating">
-    </div>
-    <div class="form-group col-md-3">
-      <label for="edit_image">描述</label>
-      <input type="text" placeholder="description" name="description">
-    </div>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_rating" class="fas fa-utensils pr-2">評分:</label>
+          <input type="text" placeholder="rating" name="rating" value="{{{restaurant.rating}}}">
+        </span>
+      </p>
 
-  </div>
-  <button type="submit" class="btn btn-success">新增餐廳清單</button>
-</form>
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_description" class="fas fa-utensils pr-2">敘述:</label>
+          <input type="text" placeholder="description" name="description" size="100PX">
+        </span>
+      </p>
+
+      <p class="mb-1">
+        <span class="text-secondary">
+          <label for="new_image" class="fas fa-utensils pr-2">圖片:</label>
+          <input type="text" placeholder="image" name="image" size="100PX">
+        </span>
+      </p>
+      <button type="submit" class="btn btn-success mt-5">新增餐廳清單</button>
+    </div>
+  </form>
+</div>
