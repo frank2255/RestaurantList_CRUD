@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-mongoose.connect('mongodb://localhost/restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/restaurant_list', { useNewUrlParser: true, useUnifiedTopology: true })
 
 // require express-handlebars here
 const exphbs = require('express-handlebars')
@@ -61,6 +61,6 @@ app.use('/restaurants', require('./routes/restaurantList'))
 
 
 // start and listen on the Express server
-app.listen(port, () => {
+app.listen(app.listen(process.env.PORT || port, () => {
   console.log(`App is running`)
 })
