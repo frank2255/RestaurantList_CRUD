@@ -53,8 +53,8 @@
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
-      <a href="/restaurants/{{{restaurant.id}}}/edit" class="btn btn-info"> Edit</a>
-      <form action="/restaurants/{{{restaurant.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
+      <a href="/restaurants/{{{restaurant._id}}}/edit" class="btn btn-info"> Edit</a>
+      <form action="/restaurants/{{{restaurant._id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
         <button type="submit" class="btn btn-danger">delete</button>
       </form>
     </div>

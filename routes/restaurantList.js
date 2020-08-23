@@ -21,10 +21,13 @@ router.get('/search', (req, res) => {
 })
 //列出所有 restaurants
 router.get('/', (req, res) => {
-  RestaurantList.find((err, restaurants) => {
-    if (err) return console.error(err)
-    return res.render('index', { restaurants: restaurants })
-  })
+  RestaurantList.find()
+    .sort({ name: 'asc' })
+    .lean()
+    .exec((err, restaurants) => {
+      if (err) return console.error(err)
+      return res.render('index', { restaurants: restaurants })
+    })
 })
 
 // 新增一筆 restaurants 頁面
@@ -68,6 +71,14 @@ router.put('/:id/edit', (req, res) => {
   RestaurantList.findById(req.params.id, (err, restaurantList) => {
     if (err) return console.error(err)
     restaurantList.name = req.body.name
+    restaurantList.name_en = req.body.name_en
+    restaurantList.category = req.body.category
+    restaurantList.image = req.body.image
+    restaurantList.location = req.body.location
+    restaurantList.phone = req.body.phone
+    restaurantList.google_map = req.body.google_map
+    restaurantList.rating = req.body.rating
+    restaurantList.description = req.body.description
     restaurantList.save(err => {
       if (err) return console.error(err)
       return res.redirect(`/restaurants/${req.params.id}`)
