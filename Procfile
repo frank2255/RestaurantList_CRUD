@@ -1,1 +1,1 @@
-web: node todoSeeder.js
+web: node app.js
