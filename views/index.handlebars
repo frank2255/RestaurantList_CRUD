@@ -39,7 +39,7 @@
 
 <!-- ./views/index.handlebars -->
 
-<div class="container mt-5 ">
+<div class="container mt-5">
   <div class="row">
     <div class="col-md-10 col-12 mx-auto ">
       <div class="card-columns ">
@@ -61,10 +61,13 @@
               </span>
 
             </div>
-            <a href="/restaurants/{{this._id}}/edit" class="btn btn-info">Edit</a>
-            <a href="/restaurants/{{this._id}}" class="btn btn-dark">Detail</a>
-            <form action="/restaurants/{{{this._id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
-              <button type="submit" class="btn btn-danger">delete</button>
+
+            <div class="form-group" align="center">
+              <a href="/restaurants/{{this._id}}/edit" class="btn btn-info">Edit</a>
+              <a href="/restaurants/{{this._id}}" class="btn btn-dark">Detail</a>
+              <form action="/restaurants/{{{this._id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
+                <button type="submit" class="btn btn-danger">delete</button>
+            </div>
           </div>
         </a>
         </form>

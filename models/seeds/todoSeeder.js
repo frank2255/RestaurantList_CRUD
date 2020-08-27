@@ -26,6 +26,6 @@ db.once('open', () => {
       description: restaurantresults[i].description
     })
   }
-  console.log('done')
+  console.log('restaurantLists are created!')
 })
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { text } = require('express')
 const Schema = mongoose.Schema
 
 const restaurantlistSchema = new Schema({
@@ -36,7 +37,6 @@ const restaurantlistSchema = new Schema({
   },
   description: {
     type: String,
-    required: true
   },
 
 })

@@ -8,7 +8,7 @@ for windows, MacOS
 * Visual Studio Code - 開發環境
 * Express: ^4.17.1 - 應用程式架構
 * Express-Handlebars: ^3.1.0 - 模板引擎
-* MongoDB - 資料庫
+* MongoDB 4.0.13- https://www.mongodb.com/try/download/community
 	
 ## **安裝與執行步驟**
 
@@ -18,13 +18,27 @@ for windows, MacOS
 
 2.開啟終端機(Terminal)cd 到存放專案本機位置並執行:
 
-	cd Restaurant_list 
+	$ cd Restaurant_list 
 	
-	npm install
+	$	npm npm packages
+
+	$ npm install
 	
+3.上傳餐廳名單seeds到資料庫
+	
+	$ npm run seeder
+	
+	> db connected!
+	> restaurantLists are created!
+
+4.執行App
+
 	$ npm run dev
 
-3.開啟網址 http://localhost:3000
+	> App is running
+	> mongodb connected!
+
+5.開啟網址 http://localhost:3000
 
 ## **功能描述**
 

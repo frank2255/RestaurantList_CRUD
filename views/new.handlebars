@@ -13,72 +13,64 @@
   <div class="banner"></div>
 </header>
 
-<div class="container mt-5">
-  <form action="/restaurants/new" method="POST">
-    <div class="col-12 col-md-10 mx-auto">
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_name" class="fas fa-utensils pr-2">餐廳名稱:</label>
-          <input type="text" placeholder="name" name="name" size="100PX">
-        </span>
-      </p>
+<h1 class="mb-1 restaurant-show-title">新增餐廳清單</h1>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_name_en" class="fas fa-utensils pr-2">餐廳英文名稱:</label>
-          <input type="text" placeholder="name_en" name="name_en" size="95PX">
+<form action="/restaurants/new" method="POST">
+  <div class="row" style="background-color:lightgrey">
+    <div class="mx-auto mt-5">
+      <div class="form-group">
+        <span>
+          <label for="new_餐廳名稱" class="fas fa-utensils pr-2">餐廳名稱:</label>
+          <input class="form-control" type="text" size="50PX" name="name">
         </span>
-      </p>
+        <span>
+          <label for="new_餐廳英文名稱" class="fas fa-utensils pr-2">餐廳英文名稱:</label>
+          <input class="form-control" type="text" name="name_en">
+        </span>
+        <span>
+          <label for="new_類別" class="fas fa-utensils pr-2">類別:</label>
+          <input class="form-control" type="text" placeholder="" name="category">
+        </span>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_category" class="fas fa-utensils pr-2">餐廳類別:</label>
-          <input type="text" placeholder="category" name="category">
+        <span>
+          <label for="new_電話" class="fas fa-utensils pr-2">電話:</label>
+          <input class="form-control" type="text" placeholder="XX XXXX XXXX" name="phone">
         </span>
-      </p>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_location" class="fas fa-utensils pr-2">餐廳地址:</label>
-          <input type="text" placeholder="location" name="location" size="100PX">
+        <span>
+          <label for="new_評分" class="fas fa-utensils pr-2">評分:</label>
+          <input class="form-control" type="text" placeholder="1.0~10.0" name="rating">
         </span>
-      </p>
+      </div>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_google_map" class="fas fa-utensils pr-2">google地圖:</label>
-          <input type="text" placeholder="google_map" name="google_map" size="94PX">
-        </span>
-      </p>
+      <div class="form-group">
+        <label for="new_地址" class="fas fa-utensils pr-2">地址:</label>
+        <input type="text" class="form-control" placeholder="" name="location">
+      </div>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_phone" class="fas fa-utensils pr-2">電話:</label>
-          <input type="text" placeholder="phone" name="phone">
-        </span>
-      </p>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_rating" class="fas fa-utensils pr-2">評分:</label>
-          <input type="text" placeholder="rating" name="rating" value="{{{restaurant.rating}}}">
-        </span>
-      </p>
+      <div class="form-group">
+        <label for="new_google地圖" class="fas fa-utensils pr-2">google地圖:</label>
+        <input type="text" class="form-control" placeholder="https://goo.gl/maps/" name="google_map">
+      </div>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_description" class="fas fa-utensils pr-2">敘述:</label>
-          <input type="text" placeholder="description" name="description" size="100PX">
-        </span>
-      </p>
+      <div class="form-group">
+        <label for="new_敘述" class="fas fa-utensils pr-2">簡介:</label>
+        <textarea class="form-control" name="description" cols="20" rows="4"
+          required>{{restaurant.description}}</textarea>
+      </div>
 
-      <p class="mb-1">
-        <span class="text-secondary">
-          <label for="new_image" class="fas fa-utensils pr-2">圖片:</label>
-          <input type="text" placeholder="image" name="image" size="100PX">
+      <div class="form-group">
+        <span>
+          <label for="new_圖片" class="fas fa-utensils pr-2">圖片:</label>
+          <input class="form-control" placeholder="" name="image">
         </span>
-      </p>
-      <button type="submit" class="btn btn-success mt-5">新增餐廳清單</button>
+      </div>
+
+      <div class="form-group" align="center">
+        <button type="submit" class="btn btn-success">新增</button>
+        <a href="/" class="btn btn-danger" role="button">返回</a>
+      </div>
     </div>
-  </form>
-</div>
+  </div>
+</form>
