@@ -40,6 +40,12 @@ for windows, MacOS
 
 5.開啟網址 http://localhost:3000
 
+## 系統網址
+Heroku
+	IP Address
+	https://frozen-castle-92890.herokuapp.com/
+
+
 ## **功能描述**
 
 #### 餐廳清單
