@@ -20,7 +20,7 @@ for windows, MacOS
 
 	$ cd Restaurant_list 
 	
-	$	npm npm packages
+	$ npm packages
 
 	$ npm install
 	
