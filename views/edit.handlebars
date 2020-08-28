@@ -18,7 +18,7 @@
 <form action="/restaurants/{{{restaurant._id}}}/edit?_method=PUT" method="POST">
   <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
   <div class="row" style="background-color:lightgrey">
-    <div class="mx-auto mt-5">
+    <div class="col-12 col-md-10 col-lg-8 mx-auto">
 
       <div class="form-group">
         <span>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="form-group">
-        <label for="敘述" class="fas fa-utensils pr-2">簡介:</label>
+        <label for="簡介" class="fas fa-utensils pr-2">簡介:</label>
         <textarea class="form-control" name="description" cols="20" rows="4"
           required>{{restaurant.description}}</textarea>
       </div>
